@@ -56,8 +56,31 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "devise", "~> 4.9"
-gem "activeadmin", "~> 3.2"
-gem "roo", "~> 2.10"
-gem "activestorage", "~> 7.2"
 gem "pg"
+
+# added by me for devise:
+gem "devise", "4.9.4"
+gem "bcrypt", "~> 3.1.20"
+gem "responders", "~> 3.1"
+gem "warden", "~> 1.2"
+gem "orm_adapter", "~> 0.5"
+
+# added by me for Active admin, an Admin interface for administrating users and more
+gem "activeadmin", "~> 3.2.5"
+gem "arbre", "~> 1.7.0"
+gem "csv", "~> 3.3.2"
+gem "formtastic", "~> 5.0.0"
+gem "formtastic_i18n", "~> 0.7.0"
+gem "inherited_resources", "~> 1.14.0"
+gem "jquery-rails", "~> 4.6.0"
+gem "kaminari", "~> 1.2.2"
+gem "ransack", "~> 4.2.1"
+gem "has_scope", "~> 0.8.2"
+gem "kaminari-actionview", "~> 1.2.2"
+gem "kaminari-activerecord", "~> 1.2.2"
+gem "kaminari-core", "~> 1.2.2"
+gem "sassc"
+
+# added by me for uploading spreadsheets to the database
+gem "roo"            # For reading Excel and CSV files
+gem "activestorage"   # For uploading files
