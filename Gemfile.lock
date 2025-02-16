@@ -123,6 +123,7 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.1)
+    ffi (1.17.1-x86_64-linux-gnu)
     formtastic (5.0.0)
       actionpack (>= 6.0.0)
     formtastic_i18n (0.7.0)
@@ -263,7 +264,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    ransack (4.3.0)
+    ransack (4.2.1)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
@@ -310,6 +311,8 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.4.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.28.0)
       base64 (~> 0.2)
@@ -374,26 +377,43 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  activeadmin (~> 3.2)
-  activestorage (~> 7.2)
+  activeadmin (~> 3.2.5)
+  activestorage
+  arbre (~> 1.7.0)
+  bcrypt (~> 3.1.20)
   bootsnap
   brakeman
   capybara
+  csv (~> 3.3.2)
   debug
-  devise (~> 4.9)
+  devise (= 4.9.4)
+  formtastic (~> 5.0.0)
+  formtastic_i18n (~> 0.7.0)
+  has_scope (~> 0.8.2)
   importmap-rails
+  inherited_resources (~> 1.14.0)
   jbuilder
+  jquery-rails (~> 4.6.0)
+  kaminari (~> 1.2.2)
+  kaminari-actionview (~> 1.2.2)
+  kaminari-activerecord (~> 1.2.2)
+  kaminari-core (~> 1.2.2)
+  orm_adapter (~> 0.5)
   pg
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
-  roo (~> 2.10)
+  ransack (~> 4.2.1)
+  responders (~> 3.1)
+  roo
   rubocop-rails-omakase
+  sassc
   selenium-webdriver
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data
+  warden (~> 1.2)
   web-console
 
 BUNDLED WITH
