@@ -2,12 +2,14 @@
 
 one:
   name: MyString
+  surname: MyString
+  email: MyString
   kuerzel: MyString
   wunschpensum: 1
-  aktuelles_pensum: 1
 
 two:
   name: MyString
+  surname: MyString
+  email: MyString
   kuerzel: MyString
   wunschpensum: 1
-  aktuelles_pensum: 1
