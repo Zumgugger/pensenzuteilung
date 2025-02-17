@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_17_175116) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_17_183948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,11 +40,24 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_17_175116) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lehrkrafts", force: :cascade do |t|
     t.string "name"
     t.string "kuerzel"
     t.integer "wunschpensum"
     t.integer "aktuelles_pensum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "school_classes", force: :cascade do |t|
+    t.string "name"
+    t.string "stufe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
