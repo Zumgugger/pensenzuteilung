@@ -84,6 +84,9 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     arbre (1.7.0)
       activesupport (>= 3.0.0)
       ruby2_keywords (>= 0.0.2)
@@ -91,6 +94,9 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     benchmark (0.4.0)
+    best_in_place (4.0.0)
+      actionpack (>= 7.0)
+      railties (>= 7.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
@@ -379,8 +385,10 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (~> 3.2.5)
   activestorage
+  annotate
   arbre (~> 1.7.0)
   bcrypt (~> 3.1.20)
+  best_in_place
   bootsnap
   brakeman
   capybara

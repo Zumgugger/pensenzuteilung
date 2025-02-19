@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: school_classes
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  grade_id   :bigint
+#
+# Indexes
+#
+#  index_school_classes_on_grade_id  (grade_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (grade_id => grades.id)
+#
 require "test_helper"
 
 class SchoolClassTest < ActiveSupport::TestCase

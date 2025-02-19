@@ -17,6 +17,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <script>
+  document.addEventListener("turbo:load", function() {
+    $(".best_in_place").best_in_place();
+  });
+</script>
+
   <body>
     <%= yield %>
   </body>

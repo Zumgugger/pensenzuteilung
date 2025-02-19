@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_18_221005) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,9 +60,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_18_221005) do
 
   create_table "school_classes", force: :cascade do |t|
     t.string "name"
-    t.string "stufe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "grade_id"
+    t.index ["grade_id"], name: "index_school_classes_on_grade_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -97,4 +98,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_18_221005) do
   add_foreign_key "courses", "school_classes"
   add_foreign_key "courses", "subjects"
   add_foreign_key "courses", "teachers"
+  add_foreign_key "school_classes", "grades"
 end

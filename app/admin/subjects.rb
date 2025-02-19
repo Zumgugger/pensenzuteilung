@@ -35,7 +35,7 @@ ActiveAdmin.register Subject do
         { name: "Individuelle Vertiefung und Erweiterung", kuerzel: "IVE" },
         { name: "Medien und Informatik", kuerzel: "MUI" },
         { name: "Sport", kuerzel: "S" },
-        { name: "Flexinbilisierung 9. Schuljahr", kuerzel: "FX9" }
+        { name: "Flexibilisierung 9. Schuljahr", kuerzel: "FX9" }
       ]
       default_subjects.each do |subject_data|
           Subject.find_or_create_by(name: subject_data[:name], kuerzel: subject_data[:kuerzel])

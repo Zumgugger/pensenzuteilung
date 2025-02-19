@@ -84,3 +84,7 @@ gem "sassc"
 # added by me for uploading spreadsheets to the database
 gem "roo"            # For reading Excel and CSV files
 gem "activestorage"   # For uploading files
+
+#added by me
+gem "annotate"
+gem 'best_in_place'
