@@ -9,6 +9,10 @@ class Course < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen"]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["school_class", "subject", "teacher"]
+  end
   private
 
   def at_least_one_reference
