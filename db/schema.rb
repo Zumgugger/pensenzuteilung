@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_20_170643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_grades_on_school_id"
   end
 
   create_table "school_classes", force: :cascade do |t|
@@ -63,7 +65,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "grade_id"
+    t.bigint "school_id"
     t.index ["grade_id"], name: "index_school_classes_on_grade_id"
+    t.index ["school_id"], name: "index_school_classes_on_school_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -71,6 +82,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
     t.string "kuerzel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_subjects_on_school_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -81,6 +94,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
     t.integer "wunschpensum", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_teachers_on_school_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,12 +106,19 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_222622) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "school_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
   add_foreign_key "courses", "school_classes"
   add_foreign_key "courses", "subjects"
   add_foreign_key "courses", "teachers"
+  add_foreign_key "grades", "schools"
   add_foreign_key "school_classes", "grades"
+  add_foreign_key "school_classes", "schools"
+  add_foreign_key "subjects", "schools"
+  add_foreign_key "teachers", "schools"
+  add_foreign_key "users", "schools"
 end

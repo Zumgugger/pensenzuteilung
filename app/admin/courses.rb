@@ -1,5 +1,5 @@
 ActiveAdmin.register Course do
-  permit_params :school_class, :teacher, :subject
+  permit_params :school_class_id, :teacher_id, :subject_id, :wochenlektionen
 
   index do
     selectable_column

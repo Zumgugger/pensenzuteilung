@@ -28,7 +28,6 @@ class Course < ApplicationRecord
   belongs_to :subject, optional: true
 
   validate :at_least_one_reference
-  validates :jahreslektionen, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   # Explicitly allow searchable attributes for Ransack
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen"]
