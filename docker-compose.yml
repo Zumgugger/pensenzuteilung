@@ -10,14 +10,23 @@ services:
       POSTGRES_DB: mydatabase
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   app:
-    build: .
+    build:
+      context: .
+      args:
+        RAILS_PRECOMPILE: "true"
     command: bash -c "rm -f /app/tmp/pids/server.pid && bin/rails server -b 0.0.0.0"
     volumes:
       - .:/app
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       DATABASE_URL: postgres://myuser:mypassword@db:5432/mydatabase
       RAILS_ENV: development
