@@ -1,5 +1,14 @@
 ActiveAdmin.register SchoolClass do
-  permit_params :name, :grade_id
+  permit_params :name, :grade_id, :school_id
+
+  index title: "Schulklassen" do
+    selectable_column
+    id_column
+    column :school
+    column :name
+    column :grade
+    actions
+  end
 
   # Custom action for prepopulating school classes
   collection_action :prepopulate, method: :post do
@@ -7,6 +16,7 @@ ActiveAdmin.register SchoolClass do
     grades = Grade.all
 
     # Data for prepopulating school classes
+    #**** später von separater Tabelle importieren
     school_classes_data = [
       { name: "1a", grade_name: "7.Schuljahr" },
       { name: "1b", grade_name: "7.Schuljahr" },

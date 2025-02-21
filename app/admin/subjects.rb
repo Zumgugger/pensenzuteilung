@@ -2,11 +2,12 @@ ActiveAdmin.register Subject do
 
     menu label: "Fächer"
   
-    permit_params :name, :kuerzel
+    permit_params :name, :kuerzel, :school_id
   
     index title: "Fächer" do
       selectable_column
       id_column
+      column :school
       column :name
       column :kuerzel
       actions
@@ -18,6 +19,7 @@ ActiveAdmin.register Subject do
     end
 
     # Custom action for populating default subjects with 'name' and 'kürzel'
+    #**** später von separater Tabelle importieren
     collection_action :prepopulate, method: :post do
       default_subjects = [
         { name: "Mathematik", kuerzel: "M" },

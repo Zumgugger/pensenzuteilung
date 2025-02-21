@@ -1,5 +1,5 @@
 ActiveAdmin.register Teacher do
-  permit_params :name, :surname, :email, :kuerzel, :wunschpensum
+  permit_params :name, :surname, :email, :kuerzel, :wunschpensum, :school_id
 
 
   
@@ -10,6 +10,7 @@ ActiveAdmin.register Teacher do
   index title: "Lehrkraefte" do
     selectable_column
     id_column
+    column :school
     column :name
     column :surname
     column :email
@@ -21,6 +22,7 @@ ActiveAdmin.register Teacher do
   # Optional: Customize the form
   form do |f|
     f.inputs 'Teacher Details' do
+      f.input :school
       f.input :name
       f.input :surname
       f.input :email
