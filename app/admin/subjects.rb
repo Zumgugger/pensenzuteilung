@@ -1,9 +1,8 @@
 ActiveAdmin.register Subject do
-
     menu label: "Fächer"
-  
+
     permit_params :name, :kuerzel, :school_id
-  
+
     index title: "Fächer" do
       selectable_column
       id_column
@@ -12,15 +11,17 @@ ActiveAdmin.register Subject do
       column :kuerzel
       actions
     end
-  
+
     collection_action :delete_all, method: :post do
       Subject.destroy_all
       redirect_to admin_subjects_path, notice: "Alle Fächer wurden gelöscht"
     end
 
     # Custom action for populating default subjects with 'name' and 'kürzel'
-    #**** später von separater Tabelle importieren
+    # **** später von separater Tabelle importieren
     collection_action :prepopulate, method: :post do
+      school = School.first
+
       default_subjects = [
         { name: "Mathematik", kuerzel: "M" },
         { name: "Deutsch", kuerzel: "D" },
@@ -39,11 +40,9 @@ ActiveAdmin.register Subject do
         { name: "Sport", kuerzel: "S" },
         { name: "Flexibilisierung 9. Schuljahr", kuerzel: "FX9" }
       ]
+
       default_subjects.each do |subject_data|
-          Subject.find_or_create_by(name: subject_data[:name], kuerzel: subject_data[:kuerzel])
-      end
-      default_subjects.each do |subject_data|
-        Subject.find_or_create_by(name: subject_data[:name], kuerzel: subject_data[:kuerzel])
+        Subject.find_or_create_by(subject_data.merge(school_id: school&.id))
       end
       redirect_to admin_subjects_path, notice: "Subjects prepopulated successfully!"
     end

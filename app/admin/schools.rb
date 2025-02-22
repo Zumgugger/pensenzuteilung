@@ -15,7 +15,8 @@ ActiveAdmin.register School do
 
   filter :name
   filter :location
-  filter :teachers_name, as: :select, collection: Teacher.all.map { |t| [t.name, t.id] }
+  filter :teachers_name, as: :select, collection: -> { Teacher.pluck(:name, :id) }
+
 
   form do |f|
     f.inputs "School Details" do
