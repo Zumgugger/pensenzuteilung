@@ -3,6 +3,7 @@
 # Table name: courses
 #
 #  id              :bigint           not null, primary key
+#  seed            :boolean          default(FALSE)
 #  wochenlektionen :decimal(, )      default(0.0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

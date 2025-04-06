@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  name       :string
+#  seed       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  school_id  :bigint

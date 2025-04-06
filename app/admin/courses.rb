@@ -1,5 +1,5 @@
 ActiveAdmin.register Course do
-  permit_params :school_class_id, :teacher_id, :teacher_kuerzel, :subject_id, :wochenlektionen
+  permit_params :school_class_id, :teacher_id, :teacher_kuerzel, :subject_id, :wochenlektionen, :seed
 
   index do
     selectable_column
@@ -11,6 +11,7 @@ ActiveAdmin.register Course do
     end
     
     column :wochenlektionen
+    column :seed
     actions
   end
 
@@ -20,6 +21,7 @@ ActiveAdmin.register Course do
       f.input :subject
       f.input :teacher, as: :select, collection: Teacher.all.map { |t| [t.kuerzel, t.id] }
       f.input :wochenlektionen
+      f.input :seed
     end
     f.actions
   end

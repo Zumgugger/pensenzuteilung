@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  kuerzel    :string
 #  name       :string
+#  seed       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  school_id  :bigint
@@ -21,7 +22,7 @@ class Subject < ApplicationRecord
   belongs_to :school
   has_many :courses
     def self.ransackable_attributes(auth_object = nil)
-       ["id", "name", "kuerzel", "school_id", "created_at", "updated_at"]
+       ["id", "name", "kuerzel", "school_id", "created_at", "updated_at", "seed"]
     end
 
           # Explicitly allow searchable associations

@@ -7,6 +7,7 @@ ActiveAdmin.register SchoolClass do
     column :school
     column :name
     column :grade
+    column :seed
     actions
   end
 end

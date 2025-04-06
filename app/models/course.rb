@@ -3,6 +3,7 @@
 # Table name: courses
 #
 #  id              :bigint           not null, primary key
+#  seed            :boolean          default(FALSE)
 #  wochenlektionen :decimal(, )      default(0.0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -30,7 +31,7 @@ class Course < ApplicationRecord
   validate :at_least_one_reference
   # Explicitly allow searchable attributes for Ransack
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen"]
+    ["created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen", "seed"]
   end
 
   def self.ransackable_associations(auth_object = nil)

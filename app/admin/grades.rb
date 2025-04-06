@@ -9,6 +9,7 @@ ActiveAdmin.register Grade do
     id_column
     column :school
     column :name
+    column :seed
     actions
   end
 

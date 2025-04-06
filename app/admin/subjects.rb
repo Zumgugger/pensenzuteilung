@@ -9,6 +9,7 @@ ActiveAdmin.register Subject do
       column :school
       column :name
       column :kuerzel
+      column :seed
       actions
     end
 

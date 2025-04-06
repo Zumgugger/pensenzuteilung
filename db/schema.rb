@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_20_170650) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_06_153406) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_20_170650) do
     t.decimal "wochenlektionen", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "seed", default: false
     t.index ["school_class_id"], name: "index_courses_on_school_class_id"
     t.index ["subject_id"], name: "index_courses_on_subject_id"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
@@ -57,6 +58,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_20_170650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "school_id"
+    t.boolean "seed", default: false
     t.index ["school_id"], name: "index_grades_on_school_id"
   end
 
@@ -66,6 +68,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_20_170650) do
     t.datetime "updated_at", null: false
     t.bigint "grade_id"
     t.bigint "school_id"
+    t.boolean "seed", default: false
     t.index ["grade_id"], name: "index_school_classes_on_grade_id"
     t.index ["school_id"], name: "index_school_classes_on_school_id"
   end
@@ -83,6 +86,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_20_170650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "school_id"
+    t.boolean "seed", default: false
     t.index ["school_id"], name: "index_subjects_on_school_id"
   end
 
