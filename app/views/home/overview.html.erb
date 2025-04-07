@@ -1,0 +1,52 @@
+<h1>Welcome</h1>
+
+<h2>Lehrkräfte</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <% @teachers.each do |teacher| %>
+        <th><%= teacher.kuerzel %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @teachers.each do |teacher| %>
+        <td><%= teacher.wunschpensum %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @teachers.each do |teacher| %>
+        <td><%= teacher.courses.sum(&:wochenlektionen) %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h2>Klassen</h2>
+<% @school_classes.each do |school_class| %>
+  <h2><%= school_class.name %></h2>
+
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Fach</th>
+        <th>Wochenlektionen</th>
+        <th>Lehrperson</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% school_class.courses.each do |course| %>
+        <tr>
+          <td><%= course.subject&.name %></td>
+          <td><%= course.wochenlektionen %></td>
+          <td><%= course.teacher&.kuerzel || "–" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<!-- Add similar sections for @grades, @school_classes, and @courses -->

@@ -15,10 +15,10 @@ class School < ApplicationRecord
     has_many :users
     has_many :grades
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "location", "name", "updated_at"]
+        [ "created_at", "id", "location", "name", "updated_at" ]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["teachers", "subjects", "school_classes", "users", "grades"]  # Add all the associations that you want to be searchable
+        [ "teachers", "subjects", "school_classes", "users", "grades" ]  # Add all the associations that you want to be searchable
     end
 end

@@ -31,11 +31,11 @@ class Course < ApplicationRecord
   validate :at_least_one_reference
   # Explicitly allow searchable attributes for Ransack
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen", "seed"]
+    [ "created_at", "id", "school_class_id", "subject_id", "teacher_id", "updated_at", "wochenlektionen", "seed" ]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["school_class", "subject", "teacher"]
+    [ "school_class", "subject", "teacher" ]
   end
   private
 
@@ -44,4 +44,8 @@ class Course < ApplicationRecord
       errors.add(:base, "Um einen Kurs zu erstellen muss entweder Klasse, Fach oder Lehkraft definiert sein")
     end
   end
+
+  def school
+    school_class&.school.name
+end
 end
